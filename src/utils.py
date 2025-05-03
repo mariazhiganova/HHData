@@ -3,7 +3,7 @@ from typing import Dict, List
 from src.api_connection import EmployerHH, Vacancy
 
 
-def select_employers_ids():
+def select_employers_ids() -> list:
     """
     Вспомогательная функция для выбора интересующих работодателей по ключевому слову
     """

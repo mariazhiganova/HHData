@@ -4,7 +4,7 @@ import psycopg2
 
 
 class DBManager:
-    def __init__(self, host, database, user, password):
+    def __init__(self, host: str, database: str, user: str, password: str) -> None:
         """
         Инициализация класса DBManager и установка соединения с БД.
         """
@@ -99,7 +99,7 @@ class DBManager:
             print(f"Ошибка при получении данных: {e}")
             return []
 
-    def get_vacancies_with_keyword(self, keyword) -> None | list:
+    def get_vacancies_with_keyword(self, keyword: str) -> None | list:
         """
         Получает список всех вакансий, в названии которых содержатся переданные в метод слова, например python.
         """

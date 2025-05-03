@@ -100,7 +100,7 @@ def insert_data_in_vacancies(params: dict, db_name: str, data: list) -> None:
         print(f"Ошибка при заполнении таблицы: {e}")
 
 
-def insert_data_in_employers(params: dict, db_name: str, data: dict):
+def insert_data_in_employers(params: dict, db_name: str, data: dict) -> None:
     """
     Функция для заполнения таблицы сотрудников
     """
