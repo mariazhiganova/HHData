@@ -1,3 +1,5 @@
+import os
+
 from src.api_connection import Vacancy
 from src.db_connection import (
     create_db,
@@ -8,6 +10,12 @@ from src.db_connection import (
 )
 from src.db_worker import DBManager
 from src.utils import select_employers_ids, get_full_employers_info
+
+from dotenv import load_dotenv
+
+
+load_dotenv()
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD")
 
 
 def main():
@@ -42,7 +50,7 @@ def main():
             "port": "5432",
             "database": "postgres",
             "user": "maria_zhiganova",
-            "password": "678038409",
+            "password": DATABASE_PASSWORD,
         }
 
         create_db(params, db_name)
@@ -57,7 +65,7 @@ def main():
         print(vacancies_list)
         insert_data_in_vacancies(params, db_name, vacancies_list)
 
-        db_option = DBManager("localhost", db_name, "maria_zhiganova", "678038409")
+        db_option = DBManager("localhost", db_name, "maria_zhiganova", DATABASE_PASSWORD)
 
         while True:
             print(
